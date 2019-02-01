@@ -1,0 +1,38 @@
+<!doctype html>
+<!-- {% if message %}
+  <h4>{{message}}!</h4>
+{% endif %} -->
+<title>Album</title>
+{% if name %}
+  <h2>Hello {{ name }}!</h2>
+{% endif %}
+
+
+
+  {% if friends %}
+    {% if message %}
+      <h4>{{message}}!</h4>
+    {% endif %}
+    <!-- <p>Here you can add friends</p> -->
+    {% for i in friends %}
+      
+
+      <!-- <form method="post" enctype="multipart/form-data" action="/searchFriends/1"> -->
+        <li>
+          email: {{i[1]}} 
+        </li>
+      </form>
+
+    {% endfor %}
+
+  {% endif%}
+
+
+
+<ul>
+{% if name != 1%}
+  <li><a href='/profilepage'>Back to Profile</a></li>
+{% endif %}
+
+<li><a href='/'>Logout</a></li>
+</ul>

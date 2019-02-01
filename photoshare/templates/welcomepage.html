@@ -1,0 +1,50 @@
+<!doctype html>
+{% if message %}
+  <h2>{{message}}</h2>
+  <h4> This is welcome page!</h4>
+{% endif %}
+<title>Album</title>
+<!-- {% if name %}
+  <h1>Hello {{ name }}!</h1>
+{% endif %} -->
+
+<ul>
+{% if name != 1%}
+  <li><a href='/profilepage'>Profile</a></li>
+{% endif %}
+<li><a href='/contribution'>Contribution Leaderboard</a></li>
+<li><a href='/wholeTagAlbums'>View website photos by tag</a></li>
+<li><a href='/popularTagAlbums'>View website most popular tags</a></li>
+
+<li>
+<form action="/welcomepage" method="POST">
+  <div class="form-group">
+    Search Tag: <input type="text" class="form-control" placeholder="Seperate tags by space" name="searchTag" size='20' >
+    <button type="submit" name="search" >search</button>
+  </div>
+</form>
+</li>
+
+{% if name != 1 %}
+  <li><a href='/'>Logout</a></li>
+{% else %}
+  <li><a href='/'>Sign in or sign up</a></li>
+{% endif %}
+
+
+</ul>
+
+
+{% if photos %}
+  <ul>
+    {% for i in photos %}
+        <li>
+        	<img src='data:image/png;base64, {{i[2]}}' style="width:200px;height:200px;"/><br />
+          <a href='viewComments/{{i[0]}}'>Comments</a> &nbsp;&nbsp;
+          <a href='viewLike/{{i[0]}}'>Likes</a>  <br />
+        </li> 
+    {% endfor %}
+    </ul>
+{% endif %}
+
+

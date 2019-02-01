@@ -1,0 +1,20 @@
+<!doctype html>
+<h4>This is contribution leaderboard</h4>
+{% if message %}
+  <h4>{{message}}!</h4>
+{% endif %}
+<title>Photoshare</title>
+
+{% if topten %}
+<ul>
+	{% for i in topten %}
+
+		<li>uid: {{i[0]}}	&nbsp;&nbsp; pscore:{{i[1]}} &nbsp;&nbsp; cscore:{{i[2]}} &nbsp;&nbsp; total:{{i[3]}}</li>
+
+	{% endfor %}
+</ul>
+{% endif%}
+
+<ul>
+<li><a href='/welcomepage'>Back</a></li>
+</ul>

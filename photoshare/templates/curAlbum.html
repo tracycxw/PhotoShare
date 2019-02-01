@@ -1,0 +1,43 @@
+<!doctype html>
+{% if message %}
+  <h4>{{message}}!</h4>
+{% endif %}
+<title>Photoshare</title>
+<!-- {% if name %}
+  <h1>Hello {{ name }}!</h1>
+{% endif %} -->
+
+{% if a_name %}
+<h4>current album name is: {{a_name}}</h4>
+<form method="post" enctype="multipart/form-data" action="/curAlbum/{{a_name}}/{{aid}}">
+	<label for="photo">Select photo:</label>
+	<input type="file" name="photo" required='true' /><br />
+	<label for="caption">Please caption:</label>
+	<input type="text" name="caption" required='true' />
+	<input type="submit" value="Upload" />
+</form>
+{% endif %}
+
+{% if photos %}
+  <ul>
+    {% for i in photos %}
+        <li>
+        	<img src='data:image/png;base64, {{i[0]}}' style="width:200px;height:200px;"/><br />
+        	caption:{{i[1]}} &nbsp;
+        	<a href='/delete_photo/{{a_name}}/{{aid}}/{{i[2]}}'>delete photo</a><br />
+          <a href='/viewComments/{{i[2]}}'>Comments</a>&nbsp;&nbsp;
+        	<a href='/view_tags/{{a_name}}/{{aid}}/{{i[2]}}'>Tags</a>&nbsp;&nbsp;
+          <a href='/viewLike/{{i[2]}}'>Likes</a><br />
+
+        	
+        </li>       
+    {% endfor %}
+    </ul>
+{% endif %}
+
+
+<ul>
+<li><a href='/albums'>Back to albums</a></li>
+<li><a href='/profilepage'>Back to profile</a></li>
+
+</ul>

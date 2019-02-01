@@ -1,0 +1,45 @@
+<!doctype html>
+{% if createmessage %}
+  <h4>{{createmessage}}!</h4>
+{% endif %}
+{% if message %}
+  <h4>{{message}}!</h4>
+{% endif %}
+<title>Photoshare</title>
+<!-- {% if name %}
+  <h1>Hello {{ name }}!</h1>
+{% endif %} -->
+
+<!-- {% if a_name %}
+<h5>current album name is: {{a_name}}</h5>
+{% endif %} -->
+
+{% if albums %}
+choose an album and then upload photos
+  <ul>
+    {% for i in albums %}
+
+        <li>album_name:{{i[1]}}, album_date:{{i[2]}}
+          <a href='/curAlbum/{{i[1]}}/{{i[0]}}'>Enter</a> &nbsp;&nbsp;
+          <!-- i[0] is album id , i[1] is album_name-->
+          <a href='/delete_album/{{i[0]}}'>Delete</a>
+          
+        </li>
+
+    {% endfor %}
+    </ul>
+
+
+{% endif %}
+
+
+
+
+<ul>
+<li><a href='/createAlbum'>Create another album</a> </li> 
+{% if createmessage %}
+<li><a href='/albums'>Upload a photo</a> </li> 
+{% endif %}
+<li><a href='/profilepage'>Back to profile</a></li>
+<!-- <li><a href='/'>Logout</a></li> -->
+</ul>

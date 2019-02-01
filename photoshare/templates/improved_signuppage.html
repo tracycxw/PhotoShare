@@ -1,0 +1,73 @@
+<!doctype html>
+{% if message %}
+  <h4>{{message}}</h4>
+{% endif %}
+
+<form action="/signuppage/" enctype="multipart/form-data" method="POST">
+	<div class="form-group" id="#signup-form">
+		First Name: <input type="text" class="form-control" placeholder="First Name" name="firstName" required='true'>
+	</div>
+
+	<div class="form-group">
+		Last Name: <input type="text" class="form-control" placeholder="Last Name" name="lastName" required='true'>
+	</div>
+
+	<div class="form-group">
+		Email: <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" name="email" required='true'>
+	</div>
+
+	<div class="form-group">
+		Birth: <input type="date" class="form-control" placeholder="date of birth (format:1994-12-12)" name="birthday", size="35">
+	</div>
+
+	<div class="form-group">
+		Hometown (optional): <input type="text" class="form-control" placeholder="Hometown" name="hometown">
+	</div>
+
+	<div class="form-group">
+		Gender (optional): 
+			<input type="radio"
+			       class="form-control"
+			       placeholder="Gender"
+			       name="gender"
+			       value =
+			       "Female">Female
+			<input type="radio"
+			       class="form-control"
+			       placeholder="Gender"
+			       name="gender"
+			       value =
+			       "Male">Male
+			<input type="radio"
+			       class="form-control"
+			       placeholder="Gender"
+			       name="gender"
+			       value =
+			       "Other">Other	
+	</div>
+
+	<div class="form-group">
+		Bio (optional): 
+			<input type="text" class="form-control" placeholder="Bio" name="bio">
+	</div>
+
+	<div class="form-group">
+		Password: <input type="password" class="form-control" placeholder="Password" name="password" required='true'>
+	</div>
+
+	<div class="form-group">
+		<label for="photo">Profile Picture (optional): </label>
+        <input type="file" class="form-control" name="photo" /><br />
+        <!-- <button type="submit" name="showphotos" value='submit'> submit</button> -->
+        <!-- <input type="submit" value="Sign Up Now!" name='signup'/> -->
+	</div>
+
+ 	<button type="submit" name="showphotos" value='submit'> submit</button>
+
+	
+</form>
+
+</br>
+<div>
+	<a href='/'>Back</a>
+</div>

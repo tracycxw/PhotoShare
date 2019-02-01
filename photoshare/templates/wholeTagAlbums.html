@@ -1,0 +1,59 @@
+<!doctype html>
+{% if message %}
+  <h4>{{message}}!</h4>
+{% endif %}
+<title>Photoshare</title>
+<!-- {% if name %}
+  <h1>Hello {{ name }}!</h1>
+{% endif %} -->
+
+{% if tags %}
+  <ul>
+    {% for i in tags %}
+        <form method="post" enctype="multipart/form-data" action="/wholeTagAlbums">
+            <li>{{i[0]}} 
+            <button type="submit" name="showphotos" value={{i[0]}}>show photos</button></li>
+        </form>
+    {% endfor %}
+    </ul>
+    <ul>
+      <li><a href='/welcomepage'>Back</a></li>
+      {% if name != 1%}
+        <li><a href='/profilepage'>Profile</a></li>
+      {% endif %}
+
+      <li><a href='/'>Logout</a></li>
+    </ul>
+{% endif %}
+
+{% if photos %}
+  <ul>
+    {% for i in photos %}
+        <!-- <form method="post" enctype="multipart/form-data" action="/viewOwnPhotosByTag"> -->
+            <li>
+            	<img src='data:image/png;base64, {{i[2]}}' style="width:200px;height:200px;"/><br />
+            	<a href='viewComments/{{i[0]}}'>Comments</a> &nbsp;&nbsp;
+              <a href="viewLike/{{i[0]}}">Likes</a>
+            </li>
+        <!-- </form> -->
+    {% endfor %}
+    </ul>
+    <ul>
+      <li><a href='/welcomepage'>Welcome page</a></li>
+      {% if name != 1%}
+        <li><a href='/profilepage'>Profile</a></li>
+      {% endif %}
+
+      <li><a href='/'>Logout</a></li>
+    </ul>
+{% endif %}
+
+
+
+<!-- <ul>
+{% if name != 1%}
+  <li><a href='/profilepage'>Profile</a></li>
+{% endif %}
+
+<li><a href='/'>Logout</a></li>
+</ul> -->

@@ -1,0 +1,43 @@
+<!doctype html>
+<title>Photoshare</title>
+{% if name %}
+  <h2>Hello {{ name }}!</h2>
+{% endif %}
+
+
+<form action="/searchFriends/1" method="POST">
+  <div class="form-group">
+    Search friends by emial: <input type="text" class="form-control" placeholder="input email" name="searchFriends" size='20' required="true">
+    <button type="submit" name="search" >search</button>
+  </div>
+</form>
+
+
+  {% if friends %}
+    
+    {% if message %}
+      <h4>{{message}}!</h4>
+    {% endif %}
+    {% for i in friends %}
+      
+
+      <form method="post" enctype="multipart/form-data" action="/searchFriends/1">
+        <li>
+          email: {{i[1]}} <button type="submit" name="addFriend" value={{i[0]}}>add friend</button>
+        </li>
+      </form>
+
+    {% endfor %}
+    {% else %}
+    <p>all users are your friends</p>
+  {% endif%}
+
+
+
+<ul>
+{% if name != 1%}
+  <li><a href='/profilepage'>Back to Profile</a></li>
+{% endif %}
+
+<li><a href='/'>Logout</a></li>
+</ul>

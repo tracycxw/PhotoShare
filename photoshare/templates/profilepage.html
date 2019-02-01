@@ -1,0 +1,50 @@
+<!doctype html>
+
+<title>Photoshare</title>
+{% if name %}
+  <h2>Hello {{ name }}!</h2>
+{% endif %}
+
+{% if message %}
+  <h4>{{message}}!</h4>
+{% endif %}
+
+{% if photos %}
+<!-- <h2>Here's your profile photo</h2> -->
+    <ul>
+    {% for photo in photos %}
+
+        <li>{{photo[2]}}<br>
+        <img src='data:image/png;base64, {{photo[0]}}' style="width:200px;height:200px;"/></li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+<!-- {% if message is none %} -->
+  <!-- <p>You should <a href='/login'>login!</a></p> -->
+<!-- {% else %} -->
+  <p>
+
+    <form method="post" enctype="multipart/form-data" action="/profilepage">
+      <!-- <a href='/profilepage'>change your profile picture</a> -->
+        <label for="photo">change your profile picture:</label>
+        <input type="file" name="photo" required='true' /><br /><!-- 
+                <label for="caption">Please caption:</label>
+                <input type="text" name="caption" required='true' /><br /> -->
+        <input type="submit" value="Upload" />
+    </form>
+  </p>
+<!-- {% endif %} -->
+
+<ul>
+<li><a href='/welcomepage'>Welcome page</a></li>
+<li><a href='/createAlbum'>Create an album</a></li>
+<li><a href='/albums'>View your photos by albums</a></li>
+<li><a href='/tagAlbums'>View your photos by tag</a></li>
+<li><a href='/tagRecommendation'>Tag recommendation</a></li>
+<li><a href='/youMayAlsoLike'>You may also like</a></li>
+
+<li><a href='/searchFriends/1'>Add Friends</a></li>
+<li><a href='/searchFriends/0'>View your Friends</a></li>
+<li><a href='/logoutpage'>Logout</a></li>
+</ul>

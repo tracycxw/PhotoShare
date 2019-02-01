@@ -1,0 +1,32 @@
+<!doctype html>
+
+
+<title>Photoshare</title>
+{% if name %}
+  <h2>Hello {{ name }}!</h2>
+{% endif %}
+
+<h4>This is tag recommendation!</h4>
+
+
+<form action="/tagRecommendation" method="POST">
+  <div class="form-group">
+    Enter couple of tags: <input type="text" class="form-control" placeholder="Seperate tags by space" name="searchTag" size='20' required="true">
+    <button type="submit" name="search" >search</button>
+  </div>
+</form>
+
+{% if tags %}
+  <ul>
+    {% for i in tags %}
+        <form method="post" enctype="multipart/form-data" action="/tagRecommendation">
+            <li>tag: {{i[0]}} &nbsp;&nbsp; occurrence: {{i[1]}}
+            <button type="submit" name="showphotos" value={{i[0]}}>show photos</button></li>
+        </form>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+<ul>
+<li><a href='/profilepage'>Back to profile page</a></li>
+</ul>

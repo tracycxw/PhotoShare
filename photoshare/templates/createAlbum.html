@@ -1,0 +1,28 @@
+<head>
+    <title>Create an album!</title>
+</head>
+    <body>
+        <div class="title">
+            <h1>Create an album!</h1>
+        </div>
+            <form method="post" enctype="multipart/form-data" action="/createAlbum">
+
+                <!-- <label for="photo">Select photo:</label>
+                <input type="file" name="photo" required='true' /><br />
+                <label for="caption">Please caption:</label>
+                <input type="text" name="caption" required='true' /><br />
+                <input type="submit" value="Upload" /> -->
+
+                <label for="album_name">Please enter album name:</label>
+                <input type="text" name="album_name" required='true' /><br />
+                <label for="album_date">Please enter album create date:</label>
+                <div class='form-group'>
+                    <input type="date" placeholder="date of birth (format:1994-12-12)" name="album_date", size="35", required='true'>
+                </div>
+                <input type="submit" value="Confirm" />
+            </form>
+
+            <ul>
+                <li><a href='/profilepage'>Back to profile page</a></li>
+            </ul>
+    </body>

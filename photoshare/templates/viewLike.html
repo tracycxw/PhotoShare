@@ -1,0 +1,48 @@
+<!doctype html>
+
+<h4>This is like page</h4>
+
+<title>Photoshare</title>
+
+{% if message %}
+	{{message}}
+{% endif %}
+
+<!-- {% if flag != True %} -->
+<!-- add comments -->
+<form action="/viewLike/{{pid}}" method="POST">
+  <div class="form-group">
+    <!-- Input your comment: <input type="text" class="form-control" name="commentBox" size='50'><br /> -->
+    <button type="submit" name="likeBtn" >Like!</button> <br />
+  </div>
+</form>
+
+<!-- {% else %} -->
+	<!-- You have liked it. -->
+<!-- {% endif %} -->
+
+
+<p>There are {{countLikes[0]}} users who like this photo</p>
+{% if likes %}
+<ul>
+	<li>
+	{% for i in likes %}
+		
+		uid = {{i[0]}} likes it <br />
+					
+	{% endfor %}
+	</li>
+</ul>
+{% endif %}
+
+
+
+<ul>
+{% if name != 1 %}	
+<li><a href='/albums'>Back to albums</a></li>
+<li><a href='/tagAlbums'>Back to tagAlbums</a></li>
+<li><a href='/tagRecommendation'>Back to tag recommendation</a></li>
+<li><a href='/profilepage'>Back to profile</a></li>
+{% endif %}
+<li><a href='/welcomepage'>Welcome page</a></li>
+</ul>

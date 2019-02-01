@@ -1,0 +1,45 @@
+<!doctype html>
+
+<h4>This is comment page</h4>
+
+<title>Album</title>
+
+{% if flag != True %}
+<!-- add comments -->
+	<form action="/viewComments/{{pid}}" method="POST">
+	  <div class="form-group">
+	    Input your comment: <input type="text" class="form-control" name="commentBox" size='50' required="true"><br />
+	    <button type="submit" name="commentBtn" >Submit</button>
+	  </div>
+	</form>
+
+{% else %}
+	This is your picture, cannot add comment of your own.
+
+{% endif %}
+
+{% if comments %}
+	{% for i in comments %}
+		<ul>
+			<li>
+				uid: {{i[4]}} <br />
+				comment_date: {{i[1]}} <br />
+				content: {{i[2]}}
+			</li>
+		</ul>
+	{% endfor %}
+
+{% endif %}
+
+
+
+<ul>
+{% if name != 1 %}
+<li><a href='/albums'>Back to albums</a></li>
+<li><a href='/tagAlbums'>Back to tagAlbums</a></li>
+<li><a href='/tagRecommendation'>Back to tag recommendation</a></li>
+<li><a href='/profilepage'>Back to profile</a></li>
+
+{% endif %}
+<li><a href='/welcomepage'>Welcome page</a></li>
+</ul>

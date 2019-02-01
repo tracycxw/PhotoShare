@@ -1,0 +1,42 @@
+<!doctype html>
+
+<title>Photoshare</title>
+{% if name %}
+  <h2>Hello {{ name }}!</h2>
+{% endif %}
+
+{% if message %}
+  <h4>{{message}}!</h4>
+{% endif %}
+
+<!-- {% if tags %}
+  <ul>
+    {% for i in tags %}
+        <form method="post" enctype="multipart/form-data" action="/viewRecTagPic">
+            <li>{{i[0]}} 
+            <button type="submit" name="showphotos" value={{i[0]}}>show photos</button></li>
+        </form>
+    {% endfor %}
+    </ul>
+{% endif %} -->
+
+{% if photos %}
+  <ul>
+    {% for i in photos %}
+            <li>
+            	<img src='data:image/png;base64, {{i[2]}}' style="width:200px;height:200px;"/><br />
+            	<a href='viewComments/{{i[0]}}'>Comments</a> &nbsp;&nbsp;
+              <a href='viewLike/{{i[0]}}'>Likes</a>  <br />
+
+            </li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+<ul>
+{% if name != 1%}
+  <li><a href='/tagRecommendation'>Back to tag recommendation</a></li>
+  <li><a href='/profilepage'>Back to profile page</a></li>
+{% endif %}
+
+</ul>
